@@ -1,0 +1,118 @@
+-- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
+--
+-- Host: localhost    Database: videostore
+-- ------------------------------------------------------
+-- Server version	8.0.27
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `customers`
+--
+
+DROP TABLE IF EXISTS `customers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `customers` (
+  `CustomersID` int NOT NULL,
+  `FirstName` varchar(100) DEFAULT NULL,
+  `LastName` varchar(100) DEFAULT NULL,
+  `BirthDate` date DEFAULT NULL,
+  `CustomersAddress` varchar(70) DEFAULT NULL,
+  `CustomerPhone` varchar(15) DEFAULT NULL,
+  `CustomerEmail` varchar(70) DEFAULT NULL,
+  PRIMARY KEY (`CustomersID`),
+  UNIQUE KEY `CustomerPhone_UNIQUE` (`CustomerPhone`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customers`
+--
+
+LOCK TABLES `customers` WRITE;
+/*!40000 ALTER TABLE `customers` DISABLE KEYS */;
+INSERT INTO `customers` VALUES (1,'James','King','1989-07-29','1600 E Williams Field Rd','(480)229-8552','JamesKing@yahoo.com'),(2,'Jacob','James','1977-11-06','100 E 1st St','(480)123-4567','JacobWright@gmail.com'),(3,'John','Smith','1981-09-13','5000 N Hayden Rd','(480)789-0123','JohnSmith@yahoo.com'),(4,'Mark','Johnson','1991-02-28','1200 W Main St','(602)123-4567','MarkJohnson@yahoo.com'),(5,'Kailey','Harris','1977-05-17','200 N Arizona Ave','(602)567-8901','KaileyHarris@.gmail.com'),(6,'Mason','Walker','1995-12-01','5000 N 7th St','(602)401-1658','MasonWalker@gmail.com'),(7,'Tyler','Robinson','1960-02-20','5000 W Glendale Ave','(623)135-1301','TylerRobinson@yahoo.com'),(8,'Kate','Lewis','1974-08-25','1200 S Power Rd','(480)542-5763','KateLewis@gmail.com'),(9,'John','Baker','1988-09-08','10600 N Scottsdale Rd','(602)723-7415','JohnBaker@gmail.com'),(10,'Brandon','Johnston','1982-03-01','1100 W Queen Creek Rd','(480)362-1404','BrandonJames@outlook.com'),(11,'Anthony','Charles','1955-06-15','800 S Gilbert Rd','(480)031-4024','AnthonyCharles@yahoo.com'),(12,'Emily','Williams','1979-10-19','700 W Camelback Rd','(602)142-3472','EmilyWilliams@outlook.com'),(13,'Lily','Murphy','1984-03-05','400 N Val Vista Dr','(480)852-4471','LilyMurphy@yahoo.com'),(14,'James','Marks','1994-11-20','11400 E Shea Blvd','(520)527-5476','JamesMarks@gmail.com'),(15,'Haley','Brown','1971-04-29','18000 N 35th Ave','(602)456-7297','HaleyBrown@yahoo.com');
+/*!40000 ALTER TABLE `customers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rentals`
+--
+
+DROP TABLE IF EXISTS `rentals`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `rentals` (
+  `RentalsID` int NOT NULL,
+  `DateCheckedOut` date DEFAULT NULL,
+  `DateCheckedIn` date DEFAULT NULL,
+  `CustomerID` int NOT NULL,
+  `VideoID` int NOT NULL,
+  PRIMARY KEY (`RentalsID`,`CustomerID`,`VideoID`),
+  KEY `fk_VideoID_idx` (`VideoID`),
+  KEY `fk_CustomerID_idx` (`CustomerID`),
+  CONSTRAINT `fk_CustomerID` FOREIGN KEY (`CustomerID`) REFERENCES `customers` (`CustomersID`),
+  CONSTRAINT `fk_VideoID` FOREIGN KEY (`VideoID`) REFERENCES `videos` (`VideosID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rentals`
+--
+
+LOCK TABLES `rentals` WRITE;
+/*!40000 ALTER TABLE `rentals` DISABLE KEYS */;
+INSERT INTO `rentals` VALUES (1,'2020-02-14',NULL,7,31),(2,'2020-01-10','2020-02-27',1,8),(3,'2020-04-11',NULL,1,23),(4,'2020-05-15',NULL,11,6),(5,'2020-02-04','2020-03-01',5,9),(6,'2020-03-30',NULL,5,20),(7,'2020-05-15',NULL,11,35),(8,'2020-05-27','2020-06-19',13,12),(9,'2020-08-01','2020-08-15',13,25),(10,'2020-12-01','2020-12-09',13,26),(11,'2020-03-21',NULL,2,32),(12,'2020-06-02','2020-07-07',8,16),(13,'2020-07-10',NULL,8,18),(14,'2020-04-29',NULL,12,22),(15,'2020-01-03','2020-03-10',15,3),(16,'2020-05-10','2020-05-28',15,14),(17,'2020-11-20','2020-12-17',15,19),(18,'2020-09-09','2020-10-27',6,15),(19,'2020-07-24','2020-08-09',10,24),(20,'2020-06-08',NULL,14,5),(21,'2020-10-02','2020-11-25',9,4),(22,'2020-06-25','2020-07-14',3,2),(23,'2020-11-07','2020-12-01',3,29);
+/*!40000 ALTER TABLE `rentals` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `videos`
+--
+
+DROP TABLE IF EXISTS `videos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `videos` (
+  `VideosID` int NOT NULL,
+  `Title` varchar(75) DEFAULT NULL,
+  `Genre` varchar(50) DEFAULT NULL,
+  `Director` varchar(100) DEFAULT NULL,
+  `Length` int DEFAULT NULL,
+  `Rating` varchar(5) DEFAULT NULL,
+  `Year` int DEFAULT NULL,
+  `NumberInStock` int DEFAULT NULL,
+  PRIMARY KEY (`VideosID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `videos`
+--
+
+LOCK TABLES `videos` WRITE;
+/*!40000 ALTER TABLE `videos` DISABLE KEYS */;
+INSERT INTO `videos` VALUES (1,'Avengers Endgame','Superhero','Joe Russo Anthony Russo',181,'PG13',2019,0),(2,'Star Wars The Force Awakens','Science Fiction','JJ Abrams',138,'PG13',2015,2),(3,'Black Panther','Superhero','Ryan Coogler',134,'PG13',2018,1),(4,'Deadpool 2','Comedy','David Leitch',119,'R',2018,2),(5,'American Sniper','Drama','Clint Eastwood',132,'R',2014,3),(6,'Jurassic World','Action','Colin Trevorrow',124,'PG13',2015,2),(7,'Iron Man 3','Superhero','Shane Black',131,'PG13',2013,1),(8,'Wonder Woman','Superhero','Patty Jenkins',141,'PG13',2017,2),(9,'Halloween','Horror','David Gordon Green',106,'R',2018,3),(10,'The Lion King','Musical','Jon Favreau',118,'PG',2019,0),(11,'Avengers Age of Ultron','Superhero','Joss Whedon',141,'PG13',2015,1),(12,'Incredibles 2','Animated','Brad Bird',118,'PG',2018,2),(13,'Deadpool','Comedy','Tim Miller',108,'R',2016,1),(14,'Guardians of the Galaxy','Superhero','James Gunn',122,'PG13',2014,3),(15,'The Secret Life of Pets','Animated','Chris Renaud',86,'PG',2016,4),(16,'Beauty and the Beast','Musical','Bill Condon',129,'PG',2017,1),(17,'Thor Ragnarok','Superhero','Taika Waititi',130,'PG13',2017,2),(18,'The Jungle Book','Adventure','Jon Favreau',106,'PG',2016,1),(19,'Spider Man Homecoming','Superhero','Jon Watts',133,'PG13',2017,1),(20,'It','Horror','Andy Muschietti',135,'R',2017,1),(21,'Zootopia','Animated','Byron Howard Rich Moore',108,'PG',2016,3),(22,'Furious 7','Action','James Wan',137,'PG13',2015,2),(23,'Suicide Squad','Action','David Ayer',123,'PG13',2016,1),(24,'Murder On the Orient Express','Thriller','Kenneth Branagh',114,'PG13',2017,2),(25,'Inside Out','Animated','Pete Docter',95,'PG',2015,3),(26,'Toy Story 4','Animated','Josh Cooley',100,'G',2019,2),(27,'Logan','Superhero','James Mangold',137,'R',2017,1),(28,'Frozen 2','Animated','Chris Buck Jennifer Lee',104,'PG',2019,0),(29,'Star Wars The Last Jedi','Science Fiction','Rian Johnson',152,'PG13',2017,1),(30,'The Fate of the Furious','Action','F Gary Gray',136,'PG13',2017,3),(31,'Ted 2','Comedy','Seth MacFlarlane',115,'R',2015,1),(32,'Bohemian Rhapsody','Musical','Bryan Singer',134,'PG13',2018,2),(33,'Knives Out','Drama','Rian Johnson',130,'PG13',2019,1),(34,'Joker','Thriller','Todd Phillips',122,'R',2019,0),(35,'The Hangover 3','Comedy','Todd Phillips',100,'R',2013,1);
+/*!40000 ALTER TABLE `videos` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-04-11 20:24:08
