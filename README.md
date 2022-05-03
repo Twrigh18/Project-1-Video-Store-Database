@@ -73,3 +73,20 @@ There are 23 rentals that has the dates, the CustomerID and the VideoID.
 
 
 ![] (Create video store pNG)
+
+## Video Store business Problem 
+Look at the data the have been extracted from query, there is a trend that is a concern. The concern is that There so many overdue rentals. Customers are not returning their movies at the due dates. And some customers are returning their movies late. This reduced inventory which means the store loses money. And buying new movies for other to rent is just more expenses for the video store
+
+## Video Store Solution
+Change store policy
+
+The first solution is to shorten . The currently p9olicy is that the customers has a rented video for at least one month.
+
+The second policy is to have stricter policies on customers not rented.
+
+
+For late returns we give a three strikes policy and after the third, customers will not rent movies again
+If the customer is not rental, they will not allowed to rent an
+
+If the second time, they will not be able to rent any movies ever again.
+
