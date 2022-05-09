@@ -2,7 +2,7 @@ This is a project is I did for MYSQL Database class where I build a video store 
 (UNDER CONSTRUCTION)
 # Wright Video Store
 
-This project was crating in a MYSQL class that I took at a community college. This project was to create a video store and create a database with customers, movies, and rentals dates. And create relationship between those tables. And look at the data to see if there is a business problem with the video store and if there is, what solution can I provide to make the Video store more successful in the future.
+This project was created in a MYSQL class that I took at a community college. This project was to create a video store and create a database with customers, movies, and rentals dates. And create relationship between those tables. And look at the data to see if there is a business problem with the video store and if there is, what solution can I provide to make the Video store more successful in the future.
 
 ## Creating Database with relationships
 
@@ -13,30 +13,71 @@ I want a relationship where one customer rents 1-3 movies and all the movies hav
 ## Video Store Data Types
 We want to select certain data types for the data to show. Majority of the data types is VARCHAR in which some columns have variety of characters like Title, but some has the INT where the data only shows numbers and DATE where only the date is shown. The first column in each table has that has the ID name has a primary key. The rental table has 1 primary key and 2 foreign keys in the columns named CustomerID which is linked from the customer table and VideoID which is linked from the video table. These are the data types that will be used for this database.
 
-CReating Relationshuips
 
+## Inserting Cusomters
+For the Customers table, I will have 7 columns that were created in the EER Diagram named:
+1. CustomersID	(Primary Key)
+2. FirstName	
+3. LastName	
+4. BirthDate	
+5. CustomersAddress	
+6. CustomerPhone	
+7. CustomerEmail
 
+The script that will be used is:
 
-For example. I want
-Another example is
+INSERT INTO customers (CustomersID, FirstName, LastName, BirthDate, CustomersAddress, CustomerPhone, CustomerEmail)
 
-Choosing Values to insert
+VALUES ('11', 'Anthony', 'Charles', '1955-06-15',	'800 S Gilbert Rd',	'(480)031-4024', 'Anthony Charles@yahoo.com');
 
-## Instering Cusomters
+I will keep using this script to insert more data values.
 
 ![](Customer%20Data%20Values.png)
 
-## Instering Videos
+## Inserting Videos
+For the Videos table, I will have 7 columns that were created in the EER Diagram named:
+1. VideosID	
+2. Title	
+3. Genre	
+4. Director	
+5. Length	
+6. Rating	
+7. Year	
+8. NumberInStock
+
+The script that will be used is:
+
+INSERT INTO videos (VideosID, Title, Genre, Director, Length, Rating, Year, NumberinStock)
+
+VALUES ('1', 'Avengers Endgame', 'Superhero', 'Joe Russo Anthony Russo', '181',	'PG13',	'2019',	'0');
 
 ![](Videos%20Data%20Values.png)
 
 ![](Video%20Data%20Values%202.png)
 
+I will keep using this script to insert more data values.
 ## Inserting Rentals
+For the Rentals table, I will have 5 columns that were created in the EER Diagram named:
+
+1. RentalsID	
+2. DateCheckedOut
+3. 3.DateCheckedIn	
+4. CustomerID	LIkned from the customer Table
+5. VideoID Linked from the videos table
+
+The script that will be used is:
+
+INSERT INTO rentals (RentalsID, DateCheckedOut, DateCheckedIn, CustomerID, VideoID)
+VALUES ('2', '2020-01-10', '2020-02-27', '1', '8');
 
 ![](Rentals%20Data%20Values.png)
 
-Creating a Rentals Due date
+I will keep using this script to insert more data values.
+
+### Creating a Rentals Due date
+I noticed
+UPDATE rentals SET DueDate = '2020-03-01' WHERE RentalsID = 1;
+So overall there are columns
 
 ## Querying the Customers Table
 
