@@ -83,8 +83,6 @@ So overall there are columns
 
 To find the customers in the database, The script SELECT * FROM customers will be used.
 
-[Customer list query script]
-
 ![](Customers%20Data.png)
 
 There are 15 customers with information such as their birth date, email, address, phone number etc.
@@ -92,8 +90,6 @@ There are 15 customers with information such as their birth date, email, address
 ## Querying the Videos Table
 
 To find the movies the video store has, the script SELECT * FROM videos will be used.
-
-[Video list query script]
 
 ![](Videos%20Data.png)
 
@@ -103,17 +99,9 @@ There are 35 movies with information such as genre, director, length, year etc.
 
 To find the date the movie has been checked out, due date and checked in for each movie that has been rented, the script SELECT * FROM rentals will be used.
 
-[Rentals list]
-
-I forgot the duedate for each rentals so I added a duedate column and
-
 ![](Rentals%20Data.png)
 
 There are 23 rentals that has the dates, the CustomerID and the VideoID.
-
-
-
-![] (Create video store pNG)
 
 ## Video Store business Problem 
 Look at the data the have been extracted from query, there is a trend that is a concern. The concern is that There so many overdue rentals. Customers are not returning their movies at the due dates. And some customers are returning their movies late. This reduced inventory which means the store loses money. And buying new movies for other to rent is just more expenses for the video store
