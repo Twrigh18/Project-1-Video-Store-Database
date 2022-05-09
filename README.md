@@ -13,6 +13,21 @@ I want a relationship where one customer rents 1-3 movies and all the movies hav
 ## Video Store Data Types
 We want to select certain data types for the data to show. Majority of the data types is VARCHAR in which some columns have variety of characters like Title, but some has the INT where the data only shows numbers and DATE where only the date is shown. The first column in each table has that has the ID name has a primary key. The rental table has 1 primary key and 2 foreign keys in the columns named CustomerID which is linked from the customer table and VideoID which is linked from the video table. These are the data types that will be used for this database.
 
+### Customers Table Data Types
+
+![](Customers%20Data%20Types.png)
+
+### Videos Table Data Types
+
+![](Videos%20Data%20Types.png)
+
+### Rentals Table Data Types
+
+![](Rentals%20Data%20Types.png)
+
+### Rentals Foreign Keys
+
+![](Rentals%20Foreign%20Keys.png)
 
 ## Inserting Cusomters
 For the Customers table, I will have 7 columns that were created in the EER Diagram named:
@@ -28,7 +43,7 @@ The script that will be used is:
 
 INSERT INTO customers (CustomersID, FirstName, LastName, BirthDate, CustomersAddress, CustomerPhone, CustomerEmail)
 
-VALUES ('11', 'Anthony', 'Charles', '1955-06-15',	'800 S Gilbert Rd',	'(480)031-4024', 'Anthony Charles@yahoo.com');
+VALUES ('11', 'Anthony', 'Charles', '1955-06-15',	'800 S Gilbert Rd',	'(480)031-4024', 'Anthony-Charles@yahoo.com');
 
 I will keep using this script to insert more data values.
 
