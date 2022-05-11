@@ -1,5 +1,3 @@
-This is a project is I did for MYSQL Database class where I build a video store database (Project will be finished after April 16th 2022)
-(UNDER CONSTRUCTION)
 # Wright Video Store
 
 This project was created in a MYSQL class that I took at a community college. This project was to create a video store and create a database with customers, movies, and rentals dates. And create relationship between those tables. And look at the data to see if there is a business problem with the video store and if there is, what solution can I provide to make the Video store more successful in the future.
@@ -134,7 +132,9 @@ To find the date the movie has been checked out, due date and checked in for eac
 
 There are 23 rentals that has the dates, the CustomerID and the VideoID.
 
-## Video Store Dataabse Relastionships
+## Video Store Dataabse Relationships
+
+I created a relationship where one customer is renting 1-3 movies and the date of each movie has been checked, the due date of each movie, and the date each movie has been checked back into the store. I choose six customers as an example of the movies they have rented and the rental dates of the movies that were created by linking the tables. 
 
 Customer 1 name is James King. James King is a DC fan and wants to rent DC superhero movies. The movies that James King has been renting is Video 8 which is Wonder Woman and Video 23 which is Suicide Squad. The date that Wonder Woman has been checked out was on 2020-01-10. The due date for wonder woman was on 2020-02-28 and that movie has been checked back into the video store on 2020-02-27. The date that Suicide Squad has been checked out was on 2020-04-11. The due date for Suicide Squad was on 2020-04-30 and that movie has not been checked back into the store.
 
@@ -151,19 +151,24 @@ Customer 15 name is Haley Brown. Haley Brown is a Marvel fan wants to rent Marve
 
 There are more patterns that cusotmers by looking at all 3 tables and the data and seeing the trends. This can not be created without creating the realtionships betweern the customer, videos and rental tables for this database 
 
-## Video Store business Problem 
-Look at the data the have been extracted from query, there is a trend that is a concern. The concern is that There so many overdue rentals. Customers are not returning their movies at the due dates. And some customers are returning their movies late. This reduced inventory which means the store loses money. And buying new movies for other to rent is just more expenses for the video store
+## Video Store Business Problem 
+
+Looking at the data that have been extracted from querying, there is a trend that is a concern. The concern is that there so many overdue rentals. Customers are not returning their rented movies at the due dates. And some customers are returning their rented movies late. The less movies the store has that has not been returned, the more money the store loses. So, the goal is to how can I reduce the amount of overdue rentals that the video store has.
 
 ## Video Store Solution
-Change store policy
 
-The first solution is to shorten . The currently p9olicy is that the customers has a rented video for at least one month.
+The solution is to change store policy. I will come up with 3 new store policies.
 
-The second policy is to have stricter policies on customers not rented.
+The first new store policy is to shorten the movie rentals date window. The current policy is that the customers has rented one video for at least one month. One month is too long. Customers will forget that they rented a movie therefore less incentivizing them to return it. New policy is to shorten the movie rentals date window to one week or 7 days. When the rentals date gets shorten to one week, it makes customers watch the rented movies earlier therefore will make the customer more likely to rent their rented movie on time. I believe that shortening the movie rentals date window will helps to combat overdue rentals.
 
+The second new store policy Is to have higher late fees. The current late fee is $1 per day that will be added for every movie that is late for up to 14 days. This late fee is not lot to get people to return their movies on time. New policy is that increase it to $2 per day for every day that is late. After 14 days if the customers haven’t returned the movie, they will be unable to rent movies at this store until the movie has been returned. For customers if they want to rent movies in the future, they will have to pay the rental cost and the late fees to keep on renting movies for this store. I believe that increasing late fees will help to combat overdue rentals.
 
-For late returns we give a three strikes policy and after the third, customers will not rent movies again
-If the customer is not rental, they will not allowed to rent an
+Finally, the new store policy to have a stricter late rental return policy for repeating offenders. I will institute a three-strike rule that customer will know when they are renting movies. If a customer paid the late fees and returned the movie, they will have one strike. A strike will come the second a late fee comes for the customer’s rented movie. If the customer gets a third strike, they will get a notification that they will not be able to rent movies at this store again. The third strike will be issued only if the customer has missed the late fee 14-day mark. It gives customers a chance to know about the rental policy and abide by it. This sounds like a bad business move, but the customers have consistently been late on returning the movies and you don’t know if the customer is ever going to return the rented movies on time or ever. I believe that having stricter late rental return policy will help to combat overdue rentals.
 
 If the second time, they will not be able to rent any movies ever again.
+
+## Conclusion
+
+I used SQL to create a video store database. I created a customers, videos, and a rentals table. I created a relationship where all the tables are linked to one another. I created data values that makes sense and have patterns that can be seen instead of just randomly inserting data values. I also queried all the tables to see the video store data. The relationships were also created so I can create a scenario where there are many overdue rentals. I also turned this scenario into a business problem, and I came with three new store policies that I believed that will help with combating overdue rentals. That is the Wright Video Store SQL Database project I have done in my class that I took in community college.
+
 
