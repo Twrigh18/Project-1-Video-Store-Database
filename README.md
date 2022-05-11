@@ -148,8 +148,19 @@ Customer 13 name is Lily Murphy. Lily Murphy is a Pixar fan wants to rent Pixar 
 
 Customer 15 name is Haley Brown. Haley Brown is a Marvel fan wants to rent Marvel movies. The movies that Haley Brown has been renting is Video 3 which is Black Panther, Video 14 which is Guardians of the Galaxy, and Video 19 which is Spider Man Homecoming. The date that Black Panther has been checked out was on2020-01-03. The due date for Black Panther was on 2020-03-15 and that movie has been checked back into the video store on 2020-03-10. The date that Guardians of the Galaxy has been checked out was on 2020-05-10. The due date for Guardians of the Galaxy was on 2020-06-01 and that movie has been checked back into the video store on 2020-05-28. The date that Spider Man Homecoming has been checked out was on 2020-11-20. The due date for Spider Man Homecoming was on 2020-12-20 and that movie has been checked back into the video store on 2020-12-17
 
+There are more patterns that customers by looking at all 3 tables and the data and seeing the trends. This cannot be created without creating the relationships between the customer, videos, and rental tables for this database. However, there is an easier way to see the relationships. The way is to combine the data in all three tables using INNER JOIN. This inner join will show all 15 customers and every movie they have rented, and the date checked out, due date, and checked back into the store.
 
-There are more patterns that cusotmers by looking at all 3 tables and the data and seeing the trends. This can not be created without creating the realtionships betweern the customer, videos and rental tables for this database 
+The Inner Join Script:
+
+SELECT customers.CustomersID, customers.FirstName, customers.LastName, rentals.DateCheckedOut, rentals.DueDate, rentals.DateCheckedIn, videos.VideosID, videos.Title
+
+FROM customers
+
+JOIN rentals ON customers.CustomersID = rentals.CustomerID
+
+JOIN videos ON rentals.VideosID=videos.VideosID
+
+![](Relationships%20using%20INNER%20JOIN.png)
 
 ## Video Store Business Problem 
 
